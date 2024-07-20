@@ -1,0 +1,65 @@
+<div class="p-2">
+  <h2>Manage my Puzzles</h2>
+  <hr>
+  <div class="alert alert-danger mt-2" role="alert" *ngIf="errorMsg.length">
+    <p class="p-0 m-0" *ngFor="let msg of errorMsg">{{ msg }}</p>
+  </div>
+  <div class="d-flex gap-2">
+    <div class="col-3">
+      <img class="rounded-1" width="100%" height="100%"
+           [src]=" selectedPicture || 'https://source.unsplash.com/user/c_v_r/1900x800'" alt="">
+      <div class="mt-2">
+        <input
+          (change)="onFileSelected($event)"
+          class="form-control"
+          type="file"
+          id="formFile"
+          accept="image/*"
+        >
+      </div>
+    </div>
+    <div class="col-9">
+      <form class="row g-3">
+        <div class="col-12">
+          <label for="title" class="form-label">Title</label>
+          <input [(ngModel)]="puzzleRequest.title" type="text" class="form-control" id="title" name="title"
+                 placeholder="Puzzle title">
+        </div>
+        <div class="col-md-6">
+          <label for="brand" class="form-label">Brand name</label>
+          <input [(ngModel)]="puzzleRequest.brand" type="email" class="form-control" id="brand" name="brand"
+                 placeholder="Author name">
+        </div>
+
+        <div class="col-md-6">
+          <label for="barcode" class="form-label">Barcode</label>
+          <input [(ngModel)]="puzzleRequest.barcode" type="text" class="form-control" id="barcode" name="barcode">
+        </div>
+
+        <div class="col-12">
+          <label for="description" class="form-label">Description</label>
+          <textarea [(ngModel)]="puzzleRequest.description" rows="4" class="form-control" id="description"
+                    name="description"
+                    placeholder="Very challenging puzzle"></textarea>
+        </div>
+        <div class="col-12">
+          <div class="form-check">
+            <input [(ngModel)]="puzzleRequest.shareable" class="form-check-input" type="checkbox" id="gridCheck"
+                   name="shareable">
+            <label class="form-check-label" for="gridCheck">
+              Share me
+            </label>
+          </div>
+        </div>
+        <div class="d-flex justify-content-end gap-2 col-12">
+          <button (click)="savePuzzle()" type="submit" class="btn btn-outline-primary">
+            <i class="fas fa-save"></i>&nbsp;Save
+          </button>
+          <a routerLink="/puzzles/my-puzzles" type="submit" class="btn btn-link btn text-danger">
+            <i class="fas fa-times"></i>&nbsp;Cancel
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
