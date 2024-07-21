@@ -6,6 +6,7 @@ import {authGuard} from './services/guard/auth.guard';
 import {ActivateAccountComponent} from './pages/activate-account/activate-account.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   {
     path: 'login',
     component: LoginComponent

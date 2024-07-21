@@ -1,15 +1,17 @@
 import {Component, OnInit} from '@angular/core';
+import{AuthenticationService} from "../../../../services/services/authentication.service";
+import {TokenService} from "../../../../services/token/token.service";
+import { jwtDecode } from 'jwt-decode';
 
-
-
-import {PuzzleResponse} from '../../../../services/models/puzzle-response';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-  private _puzzle: PuzzleResponse = {};
+  constructor( private tokenService: TokenService) {
+  }
+
     ngOnInit(): void {
       const linkColor = document.querySelectorAll('.nav-link');
       linkColor.forEach(link => {
@@ -23,9 +25,24 @@ export class MenuComponent implements OnInit {
       });
     }
 
-    getUsername(){
-         return this._puzzle.owner;
+
+
+  getUsername(): string | null {
+    const token = this.tokenService.token;
+
+    if (token) {
+      try {
+        const decoded: any = jwtDecode(token);
+
+        return decoded.fullName || null;
+      } catch (error) {
+        console.error('Failed to decode token:', error);
+        return null;
+      }
     }
+
+    return null;
+  }
 
 
   logout() {

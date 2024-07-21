@@ -1,9 +1,11 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="javascript:void(0)">Puzzlez</a>
+
+    <a class="navbar-brand" routerLink="/puzzles" style="color:#E12700"><i class="fa-solid fa-puzzle-piece"></i>Puzzlez</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
@@ -11,6 +13,7 @@
             <i class="fas fa-home-alt"></i>&nbsp;Home
           </a>
         </li>
+
         <li class="nav-item">
           <a class="nav-link" routerLink="my-puzzles">
             <i class="fas fa-puzzle"></i>&nbsp;My puzzles
@@ -32,13 +35,13 @@
           </a>
         </li>
       </ul>
-      <form class="d-flex gap-2 align-items-center" role="search">
-        <input class="form-control" type="search" placeholder="Find a puzzle" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
-        <span>Welcome</span>
-        <span class="text-capitalize fw-bold">{{ getUsername() }}</span>
+      <form class="d-flex gap-2 align-items-center" style="margin-right: 5vw" role="search">
 
-        <button class="btn btn-link" type="submit" (click)="logout()"><i class="fas fa-door-open"></i></button>
+        <i class="fa-solid fa-user title"></i>
+        <span class="text-capitalize fw-bold title">{{ getUsername() }}</span>
+
+
+        <button class="btn btn-link" type="submit" (click)="logout()">Logout<i class="fas fa-door-open"></i></button>
       </form>
     </div>
   </div>
