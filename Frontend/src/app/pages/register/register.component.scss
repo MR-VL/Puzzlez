@@ -1,0 +1,10 @@
+.reg{
+  margin-top: 15vh !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .reg{
+    margin-top: 5vh !important;
+    width: 80vw !important;
+  }
+}

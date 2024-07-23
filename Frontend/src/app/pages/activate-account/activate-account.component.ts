@@ -8,11 +8,13 @@ import {skipUntil} from 'rxjs';
   templateUrl: './activate-account.component.html',
   styleUrls: ['./activate-account.component.scss']
 })
+
 export class ActivateAccountComponent {
 
   message = '';
   isOkay = true;
   submitted = false;
+
   constructor(
     private router: Router,
     private authService: AuthenticationService
@@ -27,7 +29,7 @@ export class ActivateAccountComponent {
         this.submitted = true;
       },
       error: () => {
-        this.message = 'Token has been expired or invalid';
+        this.message = 'Token is expired or invalid';
         this.submitted = true;
         this.isOkay = false;
       }

@@ -4,6 +4,7 @@
     <p>Your account has been successfully activated.</p>
     <button class="btn btn-primary" (click)="redirectToLogin()">Go to Login</button>
   </div>
+
   <ng-template #activationError>
     <div class="activation-error">
       <h2>Activation Failed!</h2>
@@ -14,8 +15,8 @@
 </div>
 <ng-template #codeForm>
   <div class="container">
-    <div class="text-center" style="width: 400px;">
-      <h2>Type your activation code</h2>
+    <div class="text-center type" >
+      <h2>Enter your activation code</h2>
       <code-input [isCodeHidden]="false"
                   [codeLength]="6"
                   [code]="'number'"

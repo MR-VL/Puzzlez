@@ -20,7 +20,6 @@ export class LoginComponent {
     private tokenService: TokenService
   ) {
   }
-
   login() {
     this.errorMsg = [];
     this.authService.authenticate({
@@ -30,16 +29,19 @@ export class LoginComponent {
         this.tokenService.token = res.token as string;
         this.router.navigate(['puzzles']);
       },
+
       error: (err) => {
-        console.log(err);
-        if (err.error.validationErrors) {
+        if (err.error && err.error.validationErrors) {
           this.errorMsg = err.error.validationErrors;
+        } else if (err.error && err.error.error) {
+          this.errorMsg = [err.error.error];
         } else {
-          this.errorMsg.push(err.error.error);
+          this.errorMsg = ['An unknown error occurred'];
         }
       }
     });
   }
+
 
   register() {
     this.router.navigate(['register']);

@@ -12,3 +12,18 @@
 .activation-error {
   color: red;
 }
+
+.activation-message{
+  color: green;
+}
+
+.type{
+  width: 40vw;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .type {
+    width:80vw
+  }
+}
