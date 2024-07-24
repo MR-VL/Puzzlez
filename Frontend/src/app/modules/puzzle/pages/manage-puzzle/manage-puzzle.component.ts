@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {PuzzleRequest} from '../../../../services/models/puzzle-request';
+import {PuzzleService} from '../../../../services/services/puzzle.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {PuzzleService} from "../../../../services/services/puzzle.service";
 
 @Component({
   selector: 'app-manage-puzzle',
@@ -17,7 +17,8 @@ export class ManagePuzzleComponent implements OnInit {
     description: '',
     title: ''
   };
-  selectedPicture: any;
+  selectedPuzzleCover: any;
+  selectedPicture: string | undefined;
 
   constructor(
     private puzzleService: PuzzleService,
@@ -33,15 +34,15 @@ export class ManagePuzzleComponent implements OnInit {
         'puzzle-id': puzzleId
       }).subscribe({
         next: (puzzle) => {
-         this.puzzleRequest = {
-           id: puzzle.id,
-           title: puzzle.title as string,
-           brand: puzzle.authorName as string,
-           barcode: puzzle.barcode as string,
-           description: puzzle.description as string,
-           shareable: puzzle.shareable
-         };
-         this.selectedPicture='data:image/jpg;base64,' + puzzle.picture;
+          this.puzzleRequest = {
+            id: puzzle.id,
+            title: puzzle.title as string,
+            brand: puzzle.authorName as string,
+            barcode: puzzle.barcode as string,
+            description: puzzle.description as string,
+            shareable: puzzle.shareable
+          };
+          this.selectedPicture='data:image/jpg;base64,' + puzzle.picture;
         }
       });
     }
@@ -55,7 +56,7 @@ export class ManagePuzzleComponent implements OnInit {
         this.puzzleService.uploadPuzzlePicture({
           'puzzle-id': puzzleId,
           body: {
-            file: this.selectedPicture
+            file: this.selectedPuzzleCover
           }
         }).subscribe({
           next: () => {
@@ -66,21 +67,22 @@ export class ManagePuzzleComponent implements OnInit {
       error: (err) => {
         console.log(err.error);
         this.errorMsg = err.error.validationErrors;
+        this.router.navigate(['/puzzles/my-puzzles']);
       }
     });
   }
 
   onFileSelected(event: any) {
-    this.selectedPicture = event.target.files[0];
-    console.log(this.selectedPicture);
+    this.selectedPuzzleCover = event.target.files[0];
+    console.log(this.selectedPuzzleCover);
 
-    if (this.selectedPicture) {
+    if (this.selectedPuzzleCover) {
 
       const reader = new FileReader();
       reader.onload = () => {
         this.selectedPicture = reader.result as string;
       };
-      reader.readAsDataURL(this.selectedPicture);
+      reader.readAsDataURL(this.selectedPuzzleCover);
     }
   }
 }

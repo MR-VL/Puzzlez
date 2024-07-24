@@ -5,18 +5,20 @@ import jakarta.validation.constraints.NotNull;
 
 public record PuzzleRequest(
         Integer id,
-        @NotNull(message = "100")
-        @NotEmpty(message = "100")
+
+        @NotEmpty(message = "Title can't be blank")
         String title,
-        @NotNull(message = "101")
-        @NotEmpty(message = "101")
+
+        @NotEmpty(message = "Brand can't be blank")
         String brand,
-        @NotNull(message = "102")
-        @NotEmpty(message = "102")
+
+        @NotEmpty(message = "Barcode can't be blank")
         String barcode,
-        @NotNull(message = "103")
-        @NotEmpty(message = "103")
+
+        @NotEmpty(message = "Description can't be blank")
         String description,
+
         boolean shareable
+
 ) {
 }

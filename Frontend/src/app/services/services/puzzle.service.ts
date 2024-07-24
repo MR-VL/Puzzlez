@@ -93,7 +93,7 @@ export class PuzzleService extends BaseService {
   }
 
   /** Path part for operation `uploadPuzzlePicture()` */
-  static readonly UploadPuzzlePicturePath = '/puzzles/cover/{puzzle-id}';
+  static readonly UploadPuzzlePicturePath = '/puzzles/picture/{puzzle-id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.

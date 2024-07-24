@@ -2,12 +2,14 @@ package com.mrvl.puzzle.puzzle;
 
 import com.mrvl.puzzle.file.FileUtils;
 import com.mrvl.puzzle.history.PuzzleHistory;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 public class PuzzleMapper {
 
-    public Puzzle toPuzzle(PuzzleRequest request) {
+    public Puzzle toPuzzle(@Valid @RequestBody PuzzleRequest request) {
         return Puzzle.builder()
                 .id(request.id())
                 .title(request.title())

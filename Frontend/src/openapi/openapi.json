@@ -102,7 +102,7 @@
         }
       }
     },
-    "/puzzles/cover/{puzzle-id}": {
+    "/puzzles/picture/{puzzle-id}": {
       "post": {
         "tags": [
           "Puzzle"

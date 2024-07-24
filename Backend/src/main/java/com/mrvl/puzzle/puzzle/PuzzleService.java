@@ -7,6 +7,7 @@ import com.mrvl.puzzle.history.PuzzleHistory;
 import com.mrvl.puzzle.history.PuzzleTransactionHistoryRepository;
 import com.mrvl.puzzle.user.User;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -16,6 +17,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -30,9 +32,7 @@ import static com.mrvl.puzzle.puzzle.PuzzleSpecification.withOwnerId;
 @Transactional
 public class PuzzleService {
     private final PuzzleMapper puzzleMapper;
-
     private final PuzzleRepository puzzleRepository;
-
     private final PuzzleTransactionHistoryRepository transactionHistoryRepository;
     private final FileStorageService fileStorageService;
 
@@ -245,16 +245,14 @@ public class PuzzleService {
     public void uploadPuzzlePicture(MultipartFile file, Authentication connectedUser, Integer puzzleId) {
         Puzzle puzzle = puzzleRepository.findById(puzzleId)
                 .orElseThrow(() -> new EntityNotFoundException("No puzzle found with ID:: " + puzzleId));
-
-
         User user = ((User) connectedUser.getPrincipal());
-
-        var pic = fileStorageService.saveFile(file, user.getId());
+        var pic = fileStorageService.saveFile(file, puzzleId, user.getId());
         puzzle.setPicture(pic);
         puzzleRepository.save(puzzle);
     }
-
-
-
-
 }
+
+
+
+
+

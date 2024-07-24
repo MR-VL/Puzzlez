@@ -31,4 +31,4 @@ export function uploadPuzzlePicture(http: HttpClient, rootUrl: string, params: U
   );
 }
 
-uploadPuzzlePicture.PATH = '/puzzles/cover/{puzzle-id}';
+uploadPuzzlePicture.PATH = '/puzzles/picture/{puzzle-id}';

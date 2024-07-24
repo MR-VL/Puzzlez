@@ -109,7 +109,7 @@ public class PuzzleController {
         return ResponseEntity.ok(service.approveCompletedPuzzle(puzzleId, connectedUser));
     }
 
-    @PostMapping(value = "/cover/{puzzle-id}", consumes = "multipart/form-data")
+    @PostMapping(value = "/picture/{puzzle-id}", consumes = "multipart/form-data")
     public ResponseEntity<?> uploadPuzzlePicture(
             @PathVariable("puzzle-id") Integer puzzleId,
             @Parameter()

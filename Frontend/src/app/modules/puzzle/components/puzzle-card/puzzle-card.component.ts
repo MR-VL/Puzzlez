@@ -11,11 +11,11 @@ export class PuzzleCardComponent {
   private _manage = false;
   private _puzzleCover: string | undefined;
 
-  get puzzleCover(): string | undefined {
+  get puzzlePicture(): string | undefined {
     if (this._puzzle.picture) {
       return 'data:image/jpg;base64,' + this._puzzle.picture
     }
-    return 'https://source.unsplash.com/user/c_v_r/1900x800';
+    return 'favicon.ico';
   }
 
   get puzzle(): PuzzleResponse {
