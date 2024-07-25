@@ -14,12 +14,31 @@ services:
     networks:
       - spring-demo
     restart: unless-stopped
+
   mail-dev:
     container_name: mail-dev-bsn1
     image: maildev/maildev
     ports:
       - 1080:1080
       - 1025:1025
+    networks:
+      - spring-demo
+    restart: unless-stopped
+
+  frontend:
+    container_name: angular-frontend
+    image: node:16
+    working_dir: /app
+    volumes:
+      - ./Frontend:/app
+      - /app/node_modules
+    command: sh -c "npm install && npm run start"
+    ports:
+      - 4200:4200
+    networks:
+      - spring-demo
+    restart: unless-stopped
+
 networks:
   spring-demo:
     driver: bridge
