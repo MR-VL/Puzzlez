@@ -7,9 +7,10 @@ import { RequestBuilder } from '../../request-builder';
 
 export interface CompletePuzzle$Params {
   'puzzle-id': number;
+
 }
 
-export function completePuzzle(http: HttpClient, rootUrl: string, params: CompletePuzzle$Params, context?: HttpContext): Observable<StrictHttpResponse<number>> {
+export function completePuzzle(this: any, http: HttpClient, rootUrl: string, params: CompletePuzzle$Params, context?: HttpContext): Observable<StrictHttpResponse<number>> {
   const rb = new RequestBuilder(rootUrl, completePuzzle.PATH, 'post');
   if (params) {
     rb.path('puzzle-id', params['puzzle-id'], {});
@@ -23,6 +24,7 @@ export function completePuzzle(http: HttpClient, rootUrl: string, params: Comple
       return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
     })
   );
+
 }
 
 completePuzzle.PATH = '/puzzles/complete/{puzzle-id}';

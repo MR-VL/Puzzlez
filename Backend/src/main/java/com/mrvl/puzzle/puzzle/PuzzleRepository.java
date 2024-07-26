@@ -14,8 +14,7 @@ public interface PuzzleRepository extends JpaRepository<Puzzle, Integer>, JpaSpe
             FROM Puzzle puzzle
             WHERE puzzle.archived = false
             AND puzzle.shareable = true
-            
+            AND puzzle.owner.id != :userId
             """)
     Page<Puzzle> findAllDisplayablePuzzles(Pageable pageable, Integer userId);
 }
-/*AND puzzle.owner.id != :userId*/

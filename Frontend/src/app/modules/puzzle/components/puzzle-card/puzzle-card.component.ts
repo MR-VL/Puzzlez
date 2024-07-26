@@ -9,7 +9,7 @@ import {PuzzleResponse} from '../../../../services/models/puzzle-response';
 export class PuzzleCardComponent {
   private _puzzle: PuzzleResponse = {};
   private _manage = false;
-  private _puzzleCover: string | undefined;
+
 
   get puzzlePicture(): string | undefined {
     if (this._puzzle.picture) {

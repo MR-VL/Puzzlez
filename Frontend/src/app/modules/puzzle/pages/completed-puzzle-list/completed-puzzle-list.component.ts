@@ -76,6 +76,7 @@ export class CompletedPuzzleListComponent implements OnInit {
   }
 
   completePuzzle(withFeedback: boolean) {
+
     this.puzzleService.completePuzzle({
       'puzzle-id': this.selectedPuzzle?.id as number
     }).subscribe({

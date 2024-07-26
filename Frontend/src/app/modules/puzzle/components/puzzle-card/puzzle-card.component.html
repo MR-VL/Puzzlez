@@ -1,34 +1,33 @@
 <div
   class="card"
-  style="width: 20rem;"
   [class.border-success]="puzzle.shareable"
   [class.border-warning]="puzzle.archived"
 >
-  <img height="200" [src]="puzzlePicture" class="card-img-top" alt="...">
+  <img height="200" [src]="puzzlePicture" class="card-img-top" alt="Picture failed to load">
   <div class="card-body overflow-scroll">
     <h5 class="card-title fs-6 text-nowrap fw-bold mb-1"><i class="fa-solid fa-puzzle-piece"></i>&nbsp;{{puzzle.title}}</h5>
-    <h5 class="card-subtitle fs-6 text-secondary mb-1"><i class="fa-solid fa-user-check"></i>&nbsp;{{ puzzle.authorName }}</h5>
-    <h6 class="card-subtitle fs-6 text-secondary mb-1"><i class="fas fa-code"></i>&nbsp;{{ puzzle.barcode }}</h6>
+    <h5 class="card-subtitle fs-6 text-secondary mb-1"><i class="fa-solid fa-crown"></i>&nbsp;{{ puzzle.authorName }}</h5>
+    <h6 class="card-subtitle fs-6 text-secondary mb-1"><i class="fa-solid fa-barcode"></i>&nbsp;{{ puzzle.barcode }}</h6>
     <h6 class="card-subtitle fs-6 text-secondary"><i class="fas fa-user"></i>&nbsp;{{ puzzle.owner }}</h6>
     <hr>
     <p class="card-text">{{puzzle.description}}</p>
   </div>
-  <div class="card-footer d-flex gap-2 justify-content-between align-items-center">
-    <div class="d-flex gap-2">
+  <div class="card-footer d-flex gap-2 justify-content-between align-items-center bx">
+    <div class="d-flex gap-2 share">
       <app-rating [rating]="puzzle.rate || 0"></app-rating>
       <span class="fw-bold" *ngIf="puzzle.rate || 0 > 0">
         {{puzzle.rate}}
       </span>
     </div>
-    <div class="d-flex gap-2" *ngIf="!manage">
-      <i (click)="onShowDetails()" class="fas fa-circle-info text-primary"></i>
-      <i (click)="onComplete()" class="fas fa-list-check text-primary"></i>
-      <i (click)="onAddToWaitingList()" class="fas fa-heart text-danger"></i>
+    <div class="d-flex gap-2 share" *ngIf="!manage">
+      <i (click)="onShowDetails()" class="fas fa-circle-info text-primary pad"></i>
+      <i (click)="onComplete()" class="fas fa-list-check text-primary pad"></i>
+      <i (click)="onAddToWaitingList()" class="fas fa-heart text-danger pad"></i>
     </div>
-    <div class="d-flex gap-2" *ngIf="manage">
-      <i (click)="onEdit()" class="fas fa-edit text-success"></i>
-      <i (click)="onShare()" class="fas fa-share-nodes text-primary"></i>
-      <i (click)="onArchive()" class="fas fa-archive text-danger"></i>
+    <div class="d-flex gap-2 share" *ngIf="manage">
+      <i (click)="onEdit()" class="fas fa-edit text-success pad"></i>
+      <i (click)="onShare()" class="fas fa-share-nodes text-primary pad"></i>
+      <i (click)="onArchive()" class="fas fa-archive text-danger pad"></i>
     </div>
   </div>
 </div>

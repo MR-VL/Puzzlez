@@ -15,7 +15,7 @@ export class RatingComponent {
     return Math.floor(this.rating);
   }
 
-  get hasHalfStar(): boolean {
+  get halfStar(): boolean {
     return this.rating % 1 !== 0;
   }
 

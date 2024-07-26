@@ -7,7 +7,6 @@ import com.mrvl.puzzle.history.PuzzleHistory;
 import com.mrvl.puzzle.history.PuzzleTransactionHistoryRepository;
 import com.mrvl.puzzle.user.User;
 import jakarta.persistence.EntityNotFoundException;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -17,12 +16,9 @@ import org.springframework.data.domain.Sort;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.util.List;
 import java.util.Objects;
-
 import static com.mrvl.puzzle.puzzle.PuzzleSpecification.withOwnerId;
 
 
@@ -177,17 +173,10 @@ public class PuzzleService {
             throw new OperationNotPermittedException("You cannot complete your own puzzle");
         }
 
-
-        final boolean isAlreadyBorrowedByUser = transactionHistoryRepository.isAlreadyCompletedByUser(puzzleId, user.getId());
-        if (isAlreadyBorrowedByUser) {
-            throw new OperationNotPermittedException("You already completed this puzzle and it is still not completed or the completed status is not approved by the owner");
+        final boolean isCompleted = transactionHistoryRepository.isAlreadyCompletedByUser(puzzleId, user.getId());
+        if (isCompleted) {
+            throw new OperationNotPermittedException("You already completed this puzzle! To edit feedback you can find it under 'My Completed Puzzles'");
         }
-
-        final boolean isAlreadyBorrowedByOtherUser = transactionHistoryRepository.isAlreadyCompleted(puzzleId);
-        if (isAlreadyBorrowedByOtherUser) {
-            throw new OperationNotPermittedException("The requested puzzle is already completed");
-        }
-
         PuzzleHistory history = PuzzleHistory.builder()
                 .user(user)
                 .puzzle(puzzle)

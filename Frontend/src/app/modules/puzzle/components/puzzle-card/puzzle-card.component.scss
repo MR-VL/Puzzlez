@@ -2,8 +2,32 @@ div {
   &.card {
     max-height: 450px;
     min-height: 450px;
+    width: 20rem;
   }
 }
 i {
   cursor: pointer;
+}
+
+
+@media only screen and (max-width: 600px) {
+  div {
+    &.card {
+      max-height: 450px;
+      min-height: 450px;
+      width: 100%;
+    }
+  }
+
+  .pad{
+    margin-left: 15%;
+  }
+
+  .bx{
+    display: flex !important;
+  }
+
+  .share{
+    width:45% !important;
+  }
 }

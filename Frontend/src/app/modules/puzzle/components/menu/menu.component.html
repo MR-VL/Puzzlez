@@ -1,13 +1,9 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
 
-    <a class="navbar-brand" style="color:#E12700"><i class="fa-solid fa-puzzle-piece"></i>Puzzlez</a>
+    <a class="navbar-brand logo"><i class="fa-solid fa-puzzle-piece"></i>Puzzlez</a>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class=" navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" aria-current="page" routerLink="/puzzles">
@@ -17,30 +13,34 @@
 
         <li class="nav-item">
           <a class="nav-link" routerLink="my-puzzles">
-            <i class="fas fa-puzzle"></i>&nbsp;My puzzles
+            <i class="fas fa-puzzle-piece"></i>&nbsp;My puzzles
           </a>
         </li>
+        <!--
         <li class="nav-item">
           <a class="nav-link" routerLink="my-waiting-list">
             <i class="fas fa-heart"></i>&nbsp;My waiting list
           </a>
-        </li>
+        </li>-->
         <li class="nav-item">
           <a class="nav-link" routerLink="my-completed-puzzles">
-            <i class="fa-solid fa-truck-fast"></i>&nbsp;My Completed Puzzles
+            <i class="fa-solid fa-check"></i>&nbsp;My Completed Puzzles
           </a>
         </li>
+        <!--
         <li class="nav-item">
           <a class="nav-link" routerLink="my-current-puzzles">
             <i class="fas fa-list-check"></i>&nbsp;Current Puzzles
           </a>
         </li>
+        -->
       </ul>
-      <form class="d-flex gap-2 align-items-center" style="margin-right: 5vw" role="search">
+      <form class="d-flex gap-2 align-items-center frm" role="search">
 
-        <i class="fa-solid fa-user title"></i>
-        <span class="text-capitalize fw-bold title">{{ getUsername() }}</span>
-
+        <div>
+          <i class="fa-solid fa-user title"></i>
+          <span class="text-capitalize fw-bold title t">{{ getUsername() }}</span>
+        </div>
 
         <button class="btn btn-link" type="submit" (click)="logout()">Logout<i class="fas fa-door-open"></i></button>
       </form>

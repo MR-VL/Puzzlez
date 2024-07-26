@@ -12,7 +12,7 @@ import {Router} from '@angular/router';
 export class PuzzleListComponent implements OnInit {
   puzzleResponse: PageResponsePuzzleResponse = {};
   page = 0;
-  size = 5;
+  size = 8;
   pages: any = [];
   message = '';
   level: 'success' |'error' = 'success';
@@ -45,26 +45,31 @@ export class PuzzleListComponent implements OnInit {
   gotToPage(page: number) {
     this.page = page;
     this.findAllPuzzles();
+    this.scrollToTop();
   }
 
   goToFirstPage() {
     this.page = 0;
     this.findAllPuzzles();
+    this.scrollToTop();
   }
 
   goToPreviousPage() {
     this.page --;
     this.findAllPuzzles();
+    this.scrollToTop();
   }
 
   goToLastPage() {
     this.page = this.puzzleResponse.totalPages as number - 1;
     this.findAllPuzzles();
+    this.scrollToTop();
   }
 
   goToNextPage() {
     this.page++;
     this.findAllPuzzles();
+    this.scrollToTop();
   }
 
   get isLastPage() {
@@ -91,5 +96,9 @@ export class PuzzleListComponent implements OnInit {
 
   displayPuzzleDetails(puzzle: PuzzleResponse) {
     this.router.navigate(['puzzles', 'details', puzzle.id]);
+  }
+
+  private scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

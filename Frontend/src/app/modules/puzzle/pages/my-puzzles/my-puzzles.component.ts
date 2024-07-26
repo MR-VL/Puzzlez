@@ -13,7 +13,7 @@ export class MyPuzzlesComponent implements OnInit {
 
   puzzleResponse: PageResponsePuzzleResponse = {};
   page = 0;
-  size = 5;
+  size = 8;
   pages: any = [];
 
   constructor(
@@ -44,26 +44,31 @@ export class MyPuzzlesComponent implements OnInit {
   gotToPage(page: number) {
     this.page = page;
     this.findAllPuzzles();
+    this.scrollToTop();
   }
 
   goToFirstPage() {
     this.page = 0;
     this.findAllPuzzles();
+    this.scrollToTop();
   }
 
   goToPreviousPage() {
     this.page --;
     this.findAllPuzzles();
+    this.scrollToTop();
   }
 
   goToLastPage() {
     this.page = this.puzzleResponse.totalPages as number - 1;
     this.findAllPuzzles();
+    this.scrollToTop();
   }
 
   goToNextPage() {
     this.page++;
     this.findAllPuzzles();
+    this.scrollToTop();
   }
 
   get isLastPage() {
@@ -92,5 +97,9 @@ export class MyPuzzlesComponent implements OnInit {
 
   editPuzzle(puzzle: PuzzleResponse) {
     this.router.navigate(['puzzles', 'manage', puzzle.id]);
+  }
+
+  private scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
