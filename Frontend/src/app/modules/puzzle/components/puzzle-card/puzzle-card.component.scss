@@ -10,6 +10,7 @@ i {
 }
 
 
+
 @media only screen and (max-width: 600px) {
   div {
     &.card {
@@ -28,6 +29,16 @@ i {
   }
 
   .share{
-    width:45% !important;
+    width:40% !important;
+  }
+
+  .stars{
+    display: flex !important;
+    width:60% !important;
+  }
+
+  .rate{
+    display: flex !important;
+    width:60% !important;
   }
 }

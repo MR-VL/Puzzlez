@@ -91,3 +91,4 @@ public class JwtService {
         return Keys.hmacShaKeyFor(key);
     }
 }
+//todo Add function to regenerate token if it is expired for an already existing account, will prevent login

@@ -1,11 +1,11 @@
-<h3>My Puzzles list</h3>
+<h3 class="cards">My Puzzles list</h3>
 <hr>
-<div class="d-flex justify-content-end mb-3">
+<div class="d-flex justify-content-end mb-3 new">
   <a routerLink="/puzzles/manage" class="btn btn-outline-primary">
     <i class="fas fa-plus"></i>&nbsp;New Puzzle
   </a>
 </div>
-<div class="d-flex justify-content-start gap-4 flex-wrap">
+<div class="d-flex justify-content-start gap-4 flex-wrap cards">
   <app-puzzle-card
     *ngFor="let puzzle of puzzleResponse.content"
     [puzzle]="puzzle"
@@ -15,7 +15,7 @@
     (edit)="editPuzzle($event)"
   ></app-puzzle-card>
 </div>
-<div class="d-flex justify-content-center mt-3">
+<div class="d-flex justify-content-center mt-3 listy">
   <nav aria-label="Page navigation example">
     <ul class="pagination">
       <li class="page-item">

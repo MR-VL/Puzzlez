@@ -13,8 +13,8 @@
     <p class="card-text">{{puzzle.description}}</p>
   </div>
   <div class="card-footer d-flex gap-2 justify-content-between align-items-center bx">
-    <div class="d-flex gap-2 share">
-      <app-rating [rating]="puzzle.rate || 0"></app-rating>
+    <div class="d-flex gap-2  stars">
+      <app-rating class="rate" [rating]="puzzle.rate || 0"></app-rating>
       <span class="fw-bold" *ngIf="puzzle.rate || 0 > 0">
         {{puzzle.rate}}
       </span>
@@ -22,7 +22,6 @@
     <div class="d-flex gap-2 share" *ngIf="!manage">
       <i (click)="onShowDetails()" class="fas fa-circle-info text-primary pad"></i>
       <i (click)="onComplete()" class="fas fa-list-check text-primary pad"></i>
-      <i (click)="onAddToWaitingList()" class="fas fa-heart text-danger pad"></i>
     </div>
     <div class="d-flex gap-2 share" *ngIf="manage">
       <i (click)="onEdit()" class="fas fa-edit text-success pad"></i>
