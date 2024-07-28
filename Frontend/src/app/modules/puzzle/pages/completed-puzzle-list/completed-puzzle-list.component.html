@@ -1,4 +1,4 @@
-<h2>My Completed Puzzles</h2>
+<h2 class="tab">My Completed Puzzles</h2>
 <hr>
 <div class="d-flex flex-column col-6" *ngIf="selectedPuzzle">
   <h2>Complete and share feedback</h2>
@@ -65,13 +65,13 @@
   </div>
 </div>
 <div *ngIf="!selectedPuzzle">
-  <table class="table">
+  <table class="table tab ">
     <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">Title</th>
-      <th scope="col">Author</th>
-      <th scope="col">ISBN</th>
+      <th scope="col">Brand</th>
+      <th scope="col">Barcode</th>
       <th scope="col">Rate</th>
       <th scope="col"><i class="fas fa-cogs"></i></th>
     </tr>
@@ -94,7 +94,7 @@
     </tr>
     </tbody>
   </table>
-  <div class="d-flex justify-content-center mt-3">
+  <div class="d-flex justify-content-center mt-3 navigate">
     <nav aria-label="Page navigation example">
       <ul class="pagination">
         <li class="page-item">

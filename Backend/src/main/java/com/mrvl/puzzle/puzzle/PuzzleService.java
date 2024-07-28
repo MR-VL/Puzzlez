@@ -173,10 +173,7 @@ public class PuzzleService {
             throw new OperationNotPermittedException("You cannot complete your own puzzle");
         }
 
-        final boolean isCompleted = transactionHistoryRepository.isAlreadyCompletedByUser(puzzleId, user.getId());
-        if (isCompleted) {
-            throw new OperationNotPermittedException("You already completed this puzzle! To edit feedback you can find it under 'My Completed Puzzles'");
-        }
+
         PuzzleHistory history = PuzzleHistory.builder()
                 .user(user)
                 .puzzle(puzzle)

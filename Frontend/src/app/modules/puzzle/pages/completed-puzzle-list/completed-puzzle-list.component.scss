@@ -1,3 +1,20 @@
 i {
   cursor: pointer;
 }
+
+.tab{
+  width: 80vw;
+  margin-left: 10vw;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .tab{
+    width: 90vw ;
+    margin-left: 2vw;
+  }
+
+  .navigate{
+    margin-left: 20%;
+  }
+}
