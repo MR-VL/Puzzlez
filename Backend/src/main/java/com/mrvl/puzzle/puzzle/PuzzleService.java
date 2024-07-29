@@ -177,7 +177,7 @@ public class PuzzleService {
         PuzzleHistory history = PuzzleHistory.builder()
                 .user(user)
                 .puzzle(puzzle)
-                .completed(false)
+                .completed(true)
                 .completedApproved(false)
                 .build();
         return transactionHistoryRepository.save(history).getId();

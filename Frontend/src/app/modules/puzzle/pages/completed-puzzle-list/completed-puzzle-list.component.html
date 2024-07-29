@@ -1,6 +1,6 @@
 <h2 class="tab">My Completed Puzzles</h2>
 <hr>
-<div class="d-flex flex-column col-6" *ngIf="selectedPuzzle">
+<div class="d-flex flex-column col-6 selbook" *ngIf="selectedPuzzle">
   <h2>Complete and share feedback</h2>
   <div class="d-flex flex-column col-12">
     <div class="d-flex">
@@ -13,7 +13,7 @@
     </div>
     <div class="d-flex">
       <div class="col-1">
-        <strong>Author</strong>
+        <strong>Brand</strong>
       </div>
       <div class="col-11">
         {{ selectedPuzzle.authorName }}
@@ -21,7 +21,7 @@
     </div>
     <div class="d-flex">
       <div class="col-1">
-        <strong>ISBN</strong>
+        <strong>Barcode</strong>
       </div>
       <div class="col-11">
         {{ selectedPuzzle.barcode }}
@@ -46,8 +46,8 @@
         {{ feedbackRequest.note }}
       </div>
       <div class="col-12">
-        <label for="synopsis" class="form-label">Feedback</label>
-        <textarea [(ngModel)]="feedbackRequest.comment" rows="4" class="form-control" id="synopsis" name="synopsis"
+        <label for="description" class="form-label">Feedback</label>
+        <textarea [(ngModel)]="feedbackRequest.comment" rows="4" class="form-control" id="description" name="feedback"
                   placeholder="Feedback"></textarea>
       </div>
       <div class="d-flex justify-content-end gap-2 col-12">
@@ -64,6 +64,9 @@
     </form>
   </div>
 </div>
+
+
+
 <div *ngIf="!selectedPuzzle">
   <table class="table tab ">
     <thead>
@@ -86,9 +89,9 @@
       <td><i class="fas fa-star text-warning"></i> {{ puzzle.rate }}</td>
       <td>
         <div class="d-flex gap-2">
-          <i *ngIf="puzzle.completed" class="fa-regular fa-paper-plane text-primary"></i>
-          <i *ngIf="!puzzle.completed" (click)="approveCompletedPuzzle(puzzle)" class="fa-solid fa-paper-plane text-success"></i>
-          <i class="fa-solid fa-circle-check" [class.text-success]="puzzle.completedApproved"></i>
+          <i *ngIf="puzzle.completed"(click)="processCompletedPuzzle(puzzle)" class="fa-regular fa-paper-plane text-primary chk" title="Leave Feedback"></i>
+          <i *ngIf="!puzzle.completed" (click)="processCompletedPuzzle(puzzle)" class="fa-solid fa-paper-plane text-success chk" title="Complete puzzle and leave feedback"></i>
+          <i class="fa-solid fa-circle-check" [class.text-success]="puzzle.completedApproved" title="Completion approved status"></i>
         </div>
       </td>
     </tr>

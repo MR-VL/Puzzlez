@@ -31,7 +31,7 @@ const routes: Routes = [
         canActivate: [authGuard]
       },
       {
-        path: 'my-completed-puzzles',
+        path: 'my-current-puzzles',
         component: CompletedPuzzleComponent,
         canActivate: [authGuard]
       },

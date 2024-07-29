@@ -5,7 +5,7 @@ import {CompletedPuzzleResponse} from '../../../../services/models/completed-puz
 import {PuzzleResponse} from '../../../../services/models/puzzle-response';
 import {FeedbackRequest} from '../../../../services/models/feedback-request';
 import {FeedbackService} from '../../../../services/services/feedback.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-completed-puzzle-list',
   templateUrl: './completed-puzzle-list.component.html',
@@ -20,7 +20,8 @@ export class CompletedPuzzleListComponent implements OnInit {
   feedbackRequest: FeedbackRequest = {puzzleId: 0, comment: '', note: 0};
   constructor(
     private puzzleService: PuzzleService,
-    private feedbackService: FeedbackService
+    private feedbackService: FeedbackService,
+    private router: Router
   ) {
   }
   ngOnInit(): void {
@@ -70,24 +71,28 @@ export class CompletedPuzzleListComponent implements OnInit {
     return this.page === this.completedPuzzles.totalPages as number - 1;
   }
 
-  approveCompletedPuzzle(puzzle: CompletedPuzzleResponse) {
+  processCompletedPuzzle(puzzle: CompletedPuzzleResponse) {
     this.selectedPuzzle = puzzle;
     this.feedbackRequest.puzzleId = puzzle.id as number;
   }
 
   completePuzzle(withFeedback: boolean) {
+    if (withFeedback) {
+      this.giveFeedback();
+    }
 
+    this.router.navigate(['/puzzles']);
+
+    /*
     this.puzzleService.completePuzzle({
       'puzzle-id': this.selectedPuzzle?.id as number
     }).subscribe({
       next: () => {
-        if (withFeedback) {
-          this.giveFeedback();
-        }
+
         this.selectedPuzzle = undefined;
         this.findAllCompletedPuzzles();
       }
-    });
+    });*/
   }
 
   private giveFeedback() {

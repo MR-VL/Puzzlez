@@ -13,7 +13,7 @@ export class CompletedPuzzleComponent implements OnInit {
   page = 0;
   size = 5;
   pages: any = [];
-  completedPuzzle: PageResponseCompletedPuzzleResponse = {};
+  completedPuzzles: PageResponseCompletedPuzzleResponse = {};
   message = '';
   level: 'success' |'error' = 'success';
   constructor(
@@ -26,13 +26,13 @@ export class CompletedPuzzleComponent implements OnInit {
   }
 
   private findAllCompletedPuzzles() {
-    this.puzzleService.findAllCompletedPuzzles({
+    this.puzzleService.findAllReturnedPuzzles({
       page: this.page,
       size: this.size
     }).subscribe({
       next: (resp) => {
-        this.completedPuzzle = resp;
-        this.pages = Array(this.completedPuzzle.totalPages)
+        this.completedPuzzles = resp;
+        this.pages = Array(this.completedPuzzles.totalPages)
           .fill(0)
           .map((x, i) => i);
       }
@@ -42,36 +42,43 @@ export class CompletedPuzzleComponent implements OnInit {
   gotToPage(page: number) {
     this.page = page;
     this.findAllCompletedPuzzles();
+    this.scrollToTop();
   }
 
   goToFirstPage() {
     this.page = 0;
     this.findAllCompletedPuzzles();
+    this.scrollToTop();
   }
 
   goToPreviousPage() {
     this.page --;
     this.findAllCompletedPuzzles();
+    this.scrollToTop();
   }
 
   goToLastPage() {
-    this.page = this.completedPuzzle.totalPages as number - 1;
+    this.page = this.completedPuzzles.totalPages as number - 1;
     this.findAllCompletedPuzzles();
+    this.scrollToTop();
   }
 
   goToNextPage() {
     this.page++;
     this.findAllCompletedPuzzles();
+    this.scrollToTop();
   }
 
   get isLastPage() {
-    return this.page === this.completedPuzzle.totalPages as number - 1;
+    return this.page === this.completedPuzzles.totalPages as number - 1;
   }
 
   approveCompletion(puzzle: CompletedPuzzleResponse) {
-    if (!puzzle.completed) {
-      return;
+    if(!puzzle.completedApproved){
+      this.level = 'error';
+      this.message = 'The Puzzle is not yet completed by the user';
     }
+
     this.puzzleService.approveReturnCompletedPuzzle({
       'puzzle-id': puzzle.id as number
     }).subscribe({
@@ -81,5 +88,8 @@ export class CompletedPuzzleComponent implements OnInit {
         this.findAllCompletedPuzzles();
       }
     });
+  }
+  private scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
