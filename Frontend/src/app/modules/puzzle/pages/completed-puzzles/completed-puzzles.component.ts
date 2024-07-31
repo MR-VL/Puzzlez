@@ -11,7 +11,7 @@ import {CompletedPuzzleResponse} from '../../../../services/models/completed-puz
 export class CompletedPuzzleComponent implements OnInit {
 
   page = 0;
-  size = 5;
+  size = 10;
   pages: any = [];
   completedPuzzles: PageResponseCompletedPuzzleResponse = {};
   message = '';

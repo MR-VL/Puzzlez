@@ -1,37 +1,40 @@
-<h2 class="tab">My Completed Puzzles</h2>
+<div class="d-inline-flex">
+  <h2 class="tab">My Completed Puzzles</h2>
+  <h6 class="mt-2 right">A green checkmark means the owner of the puzzle has given you a pat on the back for completing it! <br>Great job!!</h6>
+</div>
 <hr>
 <div class="d-flex flex-column col-6 selbook" *ngIf="selectedPuzzle">
   <h2>Complete and share feedback</h2>
   <div class="d-flex flex-column col-12">
     <div class="d-flex">
-      <div class="col-1">
+      <div class="col-2">
         <strong>Title</strong>
       </div>
-      <div class="col-11">
+      <div class="col-10">
         {{ selectedPuzzle.title }}
       </div>
     </div>
     <div class="d-flex">
-      <div class="col-1">
+      <div class="col-2">
         <strong>Brand</strong>
       </div>
-      <div class="col-11">
+      <div class="col-10">
         {{ selectedPuzzle.authorName }}
       </div>
     </div>
     <div class="d-flex">
-      <div class="col-1">
+      <div class="col-2">
         <strong>Barcode</strong>
       </div>
-      <div class="col-11">
+      <div class="col-10">
         {{ selectedPuzzle.barcode }}
       </div>
     </div>
     <div class="d-flex">
-      <div class="col-1">
-        <strong>Rate</strong>
+      <div class="col-2">
+        <strong>Rating</strong>
       </div>
-      <div class="col-11">
+      <div class="col-10">
         {{ selectedPuzzle.rate }}
       </div>
     </div>
@@ -52,10 +55,7 @@
       </div>
       <div class="d-flex justify-content-end gap-2 col-12">
         <button (click)="completePuzzle(true)" type="submit" class="btn btn-outline-primary">
-          <i class="fas fa-save"></i>&nbsp;Rate the Puzzle & Complete
-        </button>
-        <button (click)="completePuzzle(false)" type="submit" class="btn btn-outline-success">
-          <i class="fa-solid fa-paper-plane"></i>&nbsp;Just Complete
+          <i class="fas fa-save"></i>&nbsp;Rate the Puzzle
         </button>
         <a routerLink="/puzzles/my-puzzles" type="submit" class="btn btn-link btn text-danger">
           <i class="fas fa-times"></i>&nbsp;Cancel
@@ -75,7 +75,7 @@
       <th scope="col">Title</th>
       <th scope="col">Brand</th>
       <th scope="col">Barcode</th>
-      <th scope="col">Rate</th>
+      <th scope="col">Rating</th>
       <th scope="col"><i class="fas fa-cogs"></i></th>
     </tr>
     </thead>
@@ -89,7 +89,7 @@
       <td><i class="fas fa-star text-warning"></i> {{ puzzle.rate }}</td>
       <td>
         <div class="d-flex gap-2">
-          <i *ngIf="puzzle.completed"(click)="processCompletedPuzzle(puzzle)" class="fa-regular fa-paper-plane text-primary chk" title="Leave Feedback"></i>
+          <i *ngIf="puzzle.completed" (click)="processCompletedPuzzle(puzzle)" class="fa-regular fa-paper-plane text-primary chk" title="Leave Feedback"></i>
           <i *ngIf="!puzzle.completed" (click)="processCompletedPuzzle(puzzle)" class="fa-solid fa-paper-plane text-success chk" title="Complete puzzle and leave feedback"></i>
           <i class="fa-solid fa-circle-check" [class.text-success]="puzzle.completedApproved" title="Completion approved status"></i>
         </div>

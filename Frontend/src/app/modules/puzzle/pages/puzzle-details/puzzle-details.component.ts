@@ -5,6 +5,7 @@ import {ActivatedRoute} from '@angular/router';
 import {FeedbackService} from '../../../../services/services/feedback.service';
 import {PageResponseFeedbackResponse} from '../../../../services/models/page-response-feedback-response';
 import {PuzzleResponse} from "../../../../services/models/puzzle-response";
+import {jwtDecode} from "jwt-decode";
 
 @Component({
   selector: 'app-puzzle-details',
@@ -18,6 +19,7 @@ export class PuzzleDetailsComponent implements OnInit {
   size = 5;
   pages: any = [];
   private puzzleId = 0;
+
 
   constructor(
     private puzzleService: PuzzleService,
@@ -79,5 +81,6 @@ export class PuzzleDetailsComponent implements OnInit {
   get isLastPage() {
     return this.page === this.feedbacks.totalPages as number - 1;
   }
+
 
 }

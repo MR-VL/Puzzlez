@@ -21,6 +21,7 @@ export class LoginComponent {
   ) {
   }
   login() {
+    localStorage.removeItem('token');
     this.errorMsg = [];
     this.authService.authenticate({
       body: this.authRequest

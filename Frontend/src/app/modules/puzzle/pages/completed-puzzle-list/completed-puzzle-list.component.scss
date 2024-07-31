@@ -5,11 +5,16 @@
 .tab{
   width: 80vw;
   margin-left: 10vw;
+  padding-top:1%;
 }
 
 .selbook{
   margin-left: 20vw;
 }
+.right{
+  margin-right: 10%;
+}
+
 @media only screen and (max-width: 600px) {
   .tab{
     width: 90vw ;

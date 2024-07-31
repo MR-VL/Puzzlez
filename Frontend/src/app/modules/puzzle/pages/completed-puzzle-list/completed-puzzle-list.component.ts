@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class CompletedPuzzleListComponent implements OnInit {
   page = 0;
-  size = 5;
+  size = 10;
   pages: any = [];
   completedPuzzles: PageResponseCompletedPuzzleResponse = {};
   selectedPuzzle: PuzzleResponse | undefined = undefined;
