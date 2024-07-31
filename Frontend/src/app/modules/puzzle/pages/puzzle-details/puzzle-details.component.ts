@@ -5,7 +5,6 @@ import {ActivatedRoute} from '@angular/router';
 import {FeedbackService} from '../../../../services/services/feedback.service';
 import {PageResponseFeedbackResponse} from '../../../../services/models/page-response-feedback-response';
 import {PuzzleResponse} from "../../../../services/models/puzzle-response";
-import {jwtDecode} from "jwt-decode";
 
 @Component({
   selector: 'app-puzzle-details',

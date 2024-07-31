@@ -13,6 +13,9 @@ export class RegisterComponent {
   registerRequest: RegistrationRequest = {email: '', firstname: '', lastname: '', password: ''};
   errorMsg: Array<string> = [];
 
+  public pw1 = "";
+  public pw2 = "";
+  public pwNotMatch = "Passwords do not match, please try again.";
   constructor(
     private router: Router,
     private authService: AuthenticationService
@@ -25,18 +28,28 @@ export class RegisterComponent {
 
   register() {
     this.errorMsg = [];
-    this.authService.register({
-      body: this.registerRequest
-    })
-      .subscribe({
-        next: () => {
-          this.router.navigate(['activate-account']);
-        },
+
+    if (this.pw1 === this.pw2) {
+      this.registerRequest.password = this.pw1;
+      this.authService.register({
+        body: this.registerRequest
+      })
+        .subscribe({
+          next: () => {
+            this.router.navigate(['activate-account']);
+          },
 
 
-        error: (err) => {
-          this.errorMsg = err.error.validationErrors;
-        }
-      });
+          error: (err) => {
+            this.errorMsg = err.error.validationErrors.map((msg: string) => msg );
+          }
+
+        });
+    }
+
+    else{
+      this.errorMsg.push(this.pwNotMatch);
+    }
   }
+
 }
