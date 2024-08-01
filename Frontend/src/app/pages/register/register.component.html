@@ -34,16 +34,22 @@
            placeholder="Retype Your Password">
   </div>
 
-  <div class="d-flex justify-content-between mb-3">
-    <button (click)="register()" type="button" class="btn btn-primary">
-      <em class="fas fa-sign-in-alt">&nbsp;Create an account</em>
-    </button>
 
-    <div>
-      Already have an account?&nbsp;
-      <button (click)="login()" type="button" class="btn btn-link">
-        Login
+  <div class="d-flex justify-content-between mb-3">
+
+    <form action="?" method="POST" class="d-inline-flex">
+      <div class="g-recaptcha" [attr.data-sitekey]="siteKey"></div>
+      <br/>
+      <button (click)="register()" type="button" class="btn btn-primary left">
+        <em class="fas fa-sign-in-alt">&nbsp;Create an account</em>
       </button>
-    </div>
+    </form>
+  </div>
+
+  <div>
+    Already have an account?&nbsp;
+    <button (click)="login()" type="button" class="btn btn-link">
+      Login
+    </button>
   </div>
 </div>
