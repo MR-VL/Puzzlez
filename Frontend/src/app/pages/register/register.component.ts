@@ -69,11 +69,22 @@ export class RegisterComponent {
   }
 
   ngOnInit(): void {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd && this.router.url === '/register') {
-        window.location.reload();
-      }
-    });
+   this.loadRecapcha();
   }
 
+  private loadRecapcha() {
+    const script = document.createElement('script');
+    script.src = 'https://www.google.com/recaptcha/api.js';
+    script.async = true;
+    script.defer = true;
+    script.onload = () => this.renderReCaptcha();
+    document.body.appendChild(script);
+  }
+  renderReCaptcha() {
+    if (grecaptcha) {
+      grecaptcha.render('recaptcha-element', {
+        'sitekey': this.siteKey
+      });
+    }
+  }
 }

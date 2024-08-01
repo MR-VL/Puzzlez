@@ -38,7 +38,7 @@
   <div class="d-flex justify-content-between mb-3">
 
     <form action="?" method="POST" class="d-inline-flex">
-      <div class="g-recaptcha" [attr.data-sitekey]="siteKey"></div>
+      <div class="g-recaptcha" id="recaptcha-element" [attr.data-sitekey]="siteKey"></div>
       <br/>
       <button (click)="register()" type="button" class="btn btn-primary left">
         <em class="fas fa-sign-in-alt">&nbsp;Create an account</em>
