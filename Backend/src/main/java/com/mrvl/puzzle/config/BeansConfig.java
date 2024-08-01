@@ -14,10 +14,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
-
 import java.util.Arrays;
 import java.util.Collections;
-
 import static org.springframework.http.HttpHeaders.*;
 
 @Configuration
@@ -53,24 +51,24 @@ public class BeansConfig {
     public CorsFilter corsFilter() {
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         final CorsConfiguration config = new CorsConfiguration();
+
         config.setAllowCredentials(true);
-        config.setAllowedOrigins(Collections.singletonList("http://localhost:4200"));
+        config.setAllowedOrigins(Arrays.asList(
+                "http://localhost:4200",
+                "http://192.168.1.187:4200" // Replace with your computer's IP address
+        ));
         config.setAllowedHeaders(Arrays.asList(
-                ORIGIN,
-                CONTENT_TYPE,
-                ACCEPT,
-                AUTHORIZATION
+                "*"
         ));
         config.setAllowedMethods(Arrays.asList(
-                "GET",
-                "POST",
-                "DELETE",
-                "PUT",
-                "PATCH"
+                "*"
         ));
+        config.setExposedHeaders(Arrays.asList(
+                "*"
+        ));
+
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
-
     }
 
 }

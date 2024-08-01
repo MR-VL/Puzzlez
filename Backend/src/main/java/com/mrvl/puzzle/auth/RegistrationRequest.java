@@ -1,6 +1,5 @@
 package com.mrvl.puzzle.auth;
 
-
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -13,7 +12,6 @@ import lombok.Setter;
 @Setter
 @Builder
 public class RegistrationRequest {
-
 
     @NotEmpty(message = "Firstname is mandatory")
     @NotNull(message = "Firstname is mandatory")

@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {Router, NavigationEnd} from '@angular/router';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
 import {AuthenticationService} from '../../services/services/authentication.service';
 import {RegistrationRequest} from '../../services/models/registration-request';
 import {Secrets} from "../../../../secrets";
@@ -36,7 +36,7 @@ export class RegisterComponent {
 
   register() {
     this.errorMsg = [];
-
+/*
     const recaptchaResponse = grecaptcha.getResponse();
 
 
@@ -44,7 +44,7 @@ export class RegisterComponent {
       this.errorMsg.push('Please complete the reCAPTCHA.');
       return;
     }
-
+*/
     if (this.pw1 === this.pw2) {
       this.registerRequest.password = this.pw1;
       this.authService.register({

@@ -1,7 +1,6 @@
 package com.mrvl.puzzle.common;
 
 import lombok.*;
-
 import java.util.List;
 
 @Getter
