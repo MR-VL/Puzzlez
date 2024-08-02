@@ -79,7 +79,7 @@ If you do not have npm currently installed please go to the npm website and read
     ```markdown
    192.168.
    ```
-   There should be 4 results that populate
+   There should be 4 results that populate<br>
     ![img_1.png](img_1.png)
 
     #### Replace the 192.168.187 to your computers Lan adaptor's IP address that you wish to use.
