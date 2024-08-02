@@ -1,4 +1,15 @@
-# Live Companion Website Detailing Features and Functionalities. 
+# Puzzlez
+Puzzlez is a social media network based around completing puzzles and sharing them with your friends
+It has the ability to upload a puzzle and information regarding it, and allow other users of the platform
+to be able to complete the puzzle that you uploaded and be able to share feedback regarding it. It also allows
+the original poster of the puzzle to give completionist's a thumbs up for completing the puzzle that they uploaded.
+<br><br>
+You can see more in detail and graphical information by clicking on the link to the live companion website listed below. 
+Unfortunately GitHub Pages does not allow the opportunity to host full stack applications, so I do not have a live working
+demo of this app. You can view what this app would look like and how puzzles are displayed by using the companion site.
+
+
+## Link to Live Companion Website Detailing Features and Functionalities. 
 ### WEBSITE URL
 ## Steps to Installing and Running the Project
 ### Requirements: 
