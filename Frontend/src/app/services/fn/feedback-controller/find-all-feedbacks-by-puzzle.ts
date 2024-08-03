@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
-
 import { PageResponseFeedbackResponse } from '../../models/page-response-feedback-response';
 
 export interface FindAllFeedbacksByPuzzle$Params {

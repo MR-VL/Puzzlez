@@ -18,5 +18,3 @@ public interface PuzzleRepository extends JpaRepository<Puzzle, Integer>, JpaSpe
             """)
     Page<Puzzle> findAllDisplayablePuzzles(Pageable pageable, Integer userId);
 }
-
-/*   AND puzzle.owner.id != :userId*/

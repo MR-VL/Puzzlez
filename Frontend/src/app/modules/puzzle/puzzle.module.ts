@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { PuzzleRoutingModule } from './puzzle-routing.module';
 import { MainComponent } from './pages/main/main.component';
 import { MenuComponent } from './components/menu/menu.component';
@@ -13,7 +12,6 @@ import { CompletedPuzzleListComponent } from './pages/completed-puzzle-list/comp
 import { RatingComponent } from './components/rating/rating.component';
 import { CompletedPuzzleComponent } from './pages/completed-puzzles/completed-puzzles.component';
 import { PuzzleDetailsComponent } from './pages/puzzle-details/puzzle-details.component';
-
 
 @NgModule({
   declarations: [

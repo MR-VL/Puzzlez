@@ -2,11 +2,9 @@ import { HttpClient, HttpContext } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-
 import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
-
 import { findAllFeedbacksByPuzzle } from '../fn/feedback/find-all-feedbacks-by-puzzle';
 import { FindAllFeedbacksByPuzzle$Params } from '../fn/feedback/find-all-feedbacks-by-puzzle';
 import { PageResponseFeedbackResponse } from '../models/page-response-feedback-response';
@@ -68,5 +66,4 @@ export class FeedbackService extends BaseService {
       map((r: StrictHttpResponse<PageResponseFeedbackResponse>): PageResponseFeedbackResponse => r.body)
     );
   }
-
 }

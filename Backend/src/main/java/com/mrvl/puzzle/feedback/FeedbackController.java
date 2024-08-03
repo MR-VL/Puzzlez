@@ -40,6 +40,4 @@ public class FeedbackController {
     ) {
         return ResponseEntity.ok(service.findAllFeedbacksByPuzzle(puzzleId, page, size, connectedUser));
     }
-
-
 }

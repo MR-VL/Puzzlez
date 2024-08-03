@@ -10,7 +10,6 @@ export class PuzzleCardComponent {
   private _puzzle: PuzzleResponse = {};
   private _manage = false;
 
-
   get puzzlePicture(): string | undefined {
     if (this._puzzle.picture) {
       return 'data:image/jpg;base64,' + this._puzzle.picture
@@ -38,7 +37,6 @@ export class PuzzleCardComponent {
   }
 
   @Output() private share: EventEmitter<PuzzleResponse> = new EventEmitter<PuzzleResponse>();
-
   @Output() private archive: EventEmitter<PuzzleResponse> = new EventEmitter<PuzzleResponse>();
   @Output() private addToWaitingList: EventEmitter<PuzzleResponse> = new EventEmitter<PuzzleResponse>();
   @Output() private complete: EventEmitter<PuzzleResponse> = new EventEmitter<PuzzleResponse>();
@@ -51,10 +49,6 @@ export class PuzzleCardComponent {
 
   onArchive() {
     this.archive.emit(this._puzzle);
-  }
-
-  onAddToWaitingList() {
-    this.addToWaitingList.emit(this._puzzle);
   }
 
   onComplete() {

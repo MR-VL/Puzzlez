@@ -1,24 +1,13 @@
 package com.mrvl.puzzle.history;
 
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-
 import java.util.Optional;
 
 public interface PuzzleTransactionHistoryRepository extends JpaRepository<PuzzleHistory, Integer> {
-    @Query("""
-            SELECT
-            (COUNT (*) > 0) AS isCompleted
-            FROM PuzzleHistory history
-            WHERE history.user.id = :userId
-            AND history.puzzle.id = :puzzleId
-            AND history.completedApproved = false
-            """)
-    boolean isAlreadyCompletedByUser(@Param("puzzleId") Integer puzzleId, @Param("userId") Integer userId);
 
     @Query("""
             SELECT history
@@ -27,27 +16,12 @@ public interface PuzzleTransactionHistoryRepository extends JpaRepository<Puzzle
             """)
     Page<PuzzleHistory> findAllCompletedPuzzles(Pageable pageable, Integer userId);
 
-
     @Query("""
             SELECT history
             FROM PuzzleHistory history
             WHERE history.puzzle.owner.id = :userId
             """)
     Page<PuzzleHistory> findAllCompletedApprovedPuzzles(Pageable pageable, Integer userId);
-
-
-
-    @Query("""
-            SELECT
-            (COUNT (*) > 0) AS isCompleted
-            FROM PuzzleHistory history
-            WHERE history.puzzle.id = :puzzleId
-            AND history.completedApproved = false
-            """)
-    boolean isAlreadyCompleted(@Param("puzzleId") Integer puzzleId);
-
-
-
 
     @Query("""
             SELECT transaction
@@ -59,7 +33,6 @@ public interface PuzzleTransactionHistoryRepository extends JpaRepository<Puzzle
             """)
     Optional<PuzzleHistory> findByPuzzleIdAndUserId(@Param("puzzleId") Integer puzzleId, @Param("userId") Integer userId);
 
-
     @Query("""
             SELECT transaction
             FROM PuzzleHistory  transaction
@@ -69,5 +42,4 @@ public interface PuzzleTransactionHistoryRepository extends JpaRepository<Puzzle
             AND transaction.completedApproved = false
             """)
     Optional<PuzzleHistory> findByPuzzleIdAndOwnerId(@Param("puzzleId") Integer puzzleId, @Param("userId") Integer userId);
-
 }

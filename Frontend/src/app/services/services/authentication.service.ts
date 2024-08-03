@@ -2,11 +2,9 @@ import { HttpClient, HttpContext } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-
 import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
-
 import { authenticate } from '../fn/authentication/authenticate';
 import { Authenticate$Params } from '../fn/authentication/authenticate';
 import { AuthenticationResponse } from '../models/authentication-response';
@@ -99,7 +97,4 @@ export class AuthenticationService extends BaseService {
       map((r: StrictHttpResponse<void>): void => r.body)
     );
   }
-
-
-
 }

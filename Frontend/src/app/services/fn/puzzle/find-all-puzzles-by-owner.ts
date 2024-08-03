@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
-
 import { PageResponsePuzzleResponse } from '../../models/page-response-puzzle-response';
 
 export interface FindAllPuzzlesByOwner$Params {

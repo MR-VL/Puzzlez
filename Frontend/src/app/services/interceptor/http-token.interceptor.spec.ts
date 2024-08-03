@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { HttpTokenInterceptor } from './http-token.interceptor';
 
 describe('HttpTokenInterceptor', () => {

@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import{AuthenticationService} from "../../../../services/services/authentication.service";
 import {TokenService} from "../../../../services/token/token.service";
 import { jwtDecode } from 'jwt-decode';
 
@@ -11,7 +10,6 @@ import { jwtDecode } from 'jwt-decode';
 export class MenuComponent implements OnInit {
   constructor( private tokenService: TokenService) {
   }
-
     ngOnInit(): void {
       const linkColor = document.querySelectorAll('.nav-link');
       linkColor.forEach(link => {
@@ -24,8 +22,6 @@ export class MenuComponent implements OnInit {
         });
       });
     }
-
-
 
   getUsername(): string | null {
     const token = this.tokenService.token;
@@ -40,15 +36,11 @@ export class MenuComponent implements OnInit {
         return null;
       }
     }
-
     return null;
   }
-
 
   logout() {
     localStorage.removeItem('token');
     window.location.reload();
   }
-
-
 }

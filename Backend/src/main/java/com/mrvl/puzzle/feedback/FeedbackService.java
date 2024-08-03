@@ -1,6 +1,5 @@
 package com.mrvl.puzzle.feedback;
 
-
 import com.mrvl.puzzle.common.PageResponse;
 import com.mrvl.puzzle.exception.OperationNotPermittedException;
 import com.mrvl.puzzle.puzzle.Puzzle;
@@ -14,7 +13,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 import java.util.Objects;
 
@@ -26,16 +24,14 @@ public class FeedbackService {
     private final FeedbackMapper feedbackMapper;
     private final FeedBackRepository feedBackRepository;
 
-
-
     public Integer save(FeedbackRequest request, Authentication connectedUser) {
         Puzzle puzzle = puzzleRepository.findById(request.puzzleId())
                 .orElseThrow(() -> new EntityNotFoundException("No puzzle found with ID:: " + request.puzzleId()));
 
-
         if (puzzle.isArchived() || !puzzle.isShareable()) {
-            throw new OperationNotPermittedException("You cannot give a feedback for and archived or not shareable puzzle");
+            throw new OperationNotPermittedException("You cannot give a feedback for an archived or not shareable puzzle");
         }
+
         User user = ((User) connectedUser.getPrincipal());
         if (Objects.equals(puzzle.getOwner().getId(), user.getId())) {
             throw new OperationNotPermittedException("You cannot give feedback to your own puzzle");
@@ -66,6 +62,5 @@ public class FeedbackService {
                 feedbacks.isFirst(),
                 feedbacks.isLast()
         );
-
     }
 }

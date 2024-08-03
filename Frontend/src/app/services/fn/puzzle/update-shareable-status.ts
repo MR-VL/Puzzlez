@@ -4,7 +4,6 @@ import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
-
 export interface UpdateShareableStatus$Params {
   'puzzle-id': number;
 }

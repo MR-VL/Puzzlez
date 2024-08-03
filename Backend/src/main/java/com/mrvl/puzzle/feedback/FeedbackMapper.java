@@ -2,7 +2,6 @@ package com.mrvl.puzzle.feedback;
 
 import com.mrvl.puzzle.puzzle.Puzzle;
 import org.springframework.stereotype.Service;
-
 import java.util.Objects;
 
 @Service

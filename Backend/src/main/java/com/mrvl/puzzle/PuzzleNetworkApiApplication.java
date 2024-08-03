@@ -13,7 +13,6 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableJpaAuditing(auditorAwareRef = "auditorAware")
 @EnableAsync
 public class PuzzleNetworkApiApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(PuzzleNetworkApiApplication.class, args);
 	}

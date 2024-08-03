@@ -1,7 +1,6 @@
 import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
-
 import { PuzzleService } from './services/puzzle.service';
 import { FeedbackService } from './services/feedback.service';
 import { AuthenticationService } from './services/authentication.service';

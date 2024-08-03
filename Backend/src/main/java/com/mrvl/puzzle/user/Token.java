@@ -2,7 +2,6 @@ package com.mrvl.puzzle.user;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.time.LocalDateTime;
 
 @Getter

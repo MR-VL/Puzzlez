@@ -76,23 +76,12 @@ export class CompletedPuzzleListComponent implements OnInit {
     this.feedbackRequest.puzzleId = puzzle.id as number;
   }
 
-  completePuzzle(withFeedback: boolean) {
+  ratePuzzle(withFeedback: boolean) {
     if (withFeedback) {
       this.giveFeedback();
     }
 
     this.router.navigate(['/puzzles']);
-
-    /*
-    this.puzzleService.completePuzzle({
-      'puzzle-id': this.selectedPuzzle?.id as number
-    }).subscribe({
-      next: () => {
-
-        this.selectedPuzzle = undefined;
-        this.findAllCompletedPuzzles();
-      }
-    });*/
   }
 
   private giveFeedback() {

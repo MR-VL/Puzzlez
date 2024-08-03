@@ -1,13 +1,10 @@
-
 import { HttpClient, HttpContext } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-
 import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
-
 import { approveReturnCompletedPuzzle } from '../fn/puzzle/approve-return-completed-puzzle';
 import { ApproveReturnCompletedPuzzle$Params } from '../fn/puzzle/approve-return-completed-puzzle';
 import { completePuzzle } from '../fn/puzzle/complete-puzzle';
@@ -347,8 +344,4 @@ export class PuzzleService extends BaseService {
       map((r: StrictHttpResponse<PageResponseCompletedPuzzleResponse>): PageResponseCompletedPuzzleResponse => r.body)
     );
   }
-
-
-
-
 }

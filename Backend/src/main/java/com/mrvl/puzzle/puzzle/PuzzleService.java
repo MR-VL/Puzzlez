@@ -232,7 +232,7 @@ public class PuzzleService {
         Puzzle puzzle = puzzleRepository.findById(puzzleId)
                 .orElseThrow(() -> new EntityNotFoundException("No puzzle found with ID:: " + puzzleId));
         User user = ((User) connectedUser.getPrincipal());
-        var pic = fileStorageService.saveFile(file, puzzleId, user.getId());
+        var pic = fileStorageService.saveFile(file, user.getId());
         puzzle.setPicture(pic);
         puzzleRepository.save(puzzle);
     }

@@ -9,10 +9,8 @@ import org.springframework.security.authentication.LockedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
 import java.util.HashSet;
 import java.util.Set;
-
 import static com.mrvl.puzzle.handler.BusinessErrorCodes.*;
 import static org.springframework.http.HttpStatus.*;
 
@@ -70,18 +68,6 @@ public class GlobalExceptionHandler {
                 );
     }
 
-    /*
-    @ExceptionHandler(ActivationTokenException.class)
-    public ResponseEntity<ExceptionResponse> handleException(ActivationTokenException exp) {
-        return ResponseEntity
-                .status(BAD_REQUEST)
-                .body(
-                        ExceptionResponse.builder()
-                                .error(exp.getMessage())
-                                .build()
-                );
-    }
-*/
     @ExceptionHandler(OperationNotPermittedException.class)
     public ResponseEntity<ExceptionResponse> handleException(OperationNotPermittedException exp) {
         return ResponseEntity

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CompletedPuzzleComponent } from './completed-puzzles.component';
 
 describe('CompletedPuzzleComponent', () => {

@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
-
 import { RegistrationRequest } from '../../models/registration-request';
 
 export interface Register$Params {
