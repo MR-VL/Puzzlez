@@ -76,11 +76,8 @@ export class CompletedPuzzleListComponent implements OnInit {
     this.feedbackRequest.puzzleId = puzzle.id as number;
   }
 
-  ratePuzzle(withFeedback: boolean) {
-    if (withFeedback) {
-      this.giveFeedback();
-    }
-
+  ratePuzzle() {
+    this.giveFeedback();
     this.router.navigate(['/puzzles']);
   }
 
