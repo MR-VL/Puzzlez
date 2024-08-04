@@ -10,7 +10,7 @@ demo of this app. You can view what this app would look like and how puzzles are
 
 
 ## Link to Live Companion Website Detailing Features and Functionalities. 
-### WEBSITE URL
+### https://mr-vl.github.io/Puzzlez-Info/
 ## Steps to Installing and Running the Project
 ### Requirements: 
 ###### Java v17+, PostgresSql, NPM package manager, Docker Compose
