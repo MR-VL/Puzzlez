@@ -48,7 +48,7 @@ demo of this app. You can view what this app would look like and how puzzles are
         Add as Maven project
         ```
     3. For other compilers, Please refer to their documentation about importing and setting up a Springboot project <br><br>
-6. Run the application (If errors occur, see step 7).<br><br>
+6. Run the application (If errors occur, see step 7). If no errors occur, you have successfully set up the backend, skip to setting up the frontend<br><br>
 
 7. Manually set project structure:
     ```markdown
