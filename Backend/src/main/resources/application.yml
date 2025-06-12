@@ -4,9 +4,13 @@ spring:
   servlet:
     multipart:
       max-file-size: 50MB
+
 springdoc:
   default-produces-media-type: application/json
+
 server:
   servlet:
-    context-path: /api/v1/
-
+    context-path: /api/v1
+logging:
+  level:
+    org.springframework.boot.context.config: DEBUG

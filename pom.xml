@@ -56,16 +56,32 @@
 		</dependency>
 
 
+<!--		<dependency>-->
+<!--			<groupId>org.postgresql</groupId>-->
+<!--			<artifactId>postgresql</artifactId>-->
+<!--			<scope>runtime</scope>-->
+<!--		</dependency>-->
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
+<!--			<version>42.6.0</version>-->
+<!--			<scope>runtime</scope>-->
 		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.16.1</version>
+		</dependency>
+
+
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<optional>true</optional>
+			<version>1.18.30</version> <!-- update this to latest -->
+			<scope>provided</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt-api</artifactId>
@@ -99,20 +115,19 @@
 	</dependencies>
 
 	<build>
+		<sourceDirectory>Backend/src/main/java</sourceDirectory>
+		<testSourceDirectory>Backend/src/test/java</testSourceDirectory>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
+					<mainClass>com.mrvl.puzzle.PuzzleNetworkApiApplication</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
+
+
 
 </project>

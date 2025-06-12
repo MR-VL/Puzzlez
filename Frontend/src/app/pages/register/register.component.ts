@@ -68,9 +68,9 @@ export class RegisterComponent {
     }
   }
 
-  ngOnInit(): void {
-   this.loadRecapcha();
-  }
+  // ngOnInit(): void {
+  //  this.loadRecapcha();
+  // }
 
   private loadRecapcha() {
     const script = document.createElement('script');
