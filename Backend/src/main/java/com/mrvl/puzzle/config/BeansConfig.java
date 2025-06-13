@@ -52,8 +52,8 @@ public class BeansConfig {
 
         config.setAllowCredentials(true);
         config.setAllowedOrigins(Arrays.asList(
-                "http://localhost:4200",
-                "http://192.168.1.187:4200" // Replace with your computer's IP address
+                "http://localhost:4200"
+//                "http://192.168.1.187:4200" // Replace with your computer's IP address
         ));
         config.setAllowedHeaders(Arrays.asList(
                 "*"
